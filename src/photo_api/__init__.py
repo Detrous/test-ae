@@ -21,7 +21,7 @@ app.config["CELERY_BROKER_URL"] = "redis://{username}:{password}@{host}:{port}/{
     host=CONFIG.get("redis.host"),
     port=CONFIG.get("redis.port"),
     db=CONFIG.get("redis.db", 0),
-    username=CONFIG.get("redis.username", "h"),
+    username=CONFIG.get("redis.username", ""),
     password=CONFIG.get("redis.password", ""),
 )
 
