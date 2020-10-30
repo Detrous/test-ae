@@ -1,0 +1,14 @@
+defaults:
+  api:
+    log_lvl: info
+    fetch_photos_delta: 300
+    default_cache_time: 30
+  redis:
+    host: redis
+    port: 6379
+  mongodb:
+    username: user
+    password: password
+    host: mongodb
+    port: 27017
+    db: admin

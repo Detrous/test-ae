@@ -1,0 +1,4 @@
+*.pyc
+.venv
+configuration/dev
+celerybeat-schedule
