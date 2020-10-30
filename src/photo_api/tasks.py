@@ -7,11 +7,13 @@ from .models import Photo, PhotoMetadata
 def fetch_photos():
     app.logger.info("Fetching photos...")
     api = InterviewAPI(CONFIG.get("api.interview_api_key"))
+    # Retrieves photos from API
     photos = api.fetch_photos_with_metadata()
 
-    # Delete objects that doesn't present in main API
+    # Removes objects that doesn't present in the API
     Photo.objects(photo_id__not__in=[photo["id"] for photo in photos]).delete()
 
+    # Creates or updates photos
     for photo in photos:
         Photo.objects(photo_id=photo["id"]).update_one(
             photo_id=photo.pop("id"),
